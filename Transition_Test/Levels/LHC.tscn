@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Levels/LHC.png" type="Texture" id=1]
+[ext_resource path="res://Levels/Entrance.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/levels.gd" type="Script" id=3]
+[ext_resource path="res://Levels/Player.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 32 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 15.9999 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 56, 32 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 8, 8 )
+
+[node name="LHC" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Lhc" type="Sprite" parent="."]
+position = Vector2( 152, 56 )
+texture = ExtResource( 1 )
+offset = Vector2( -56, 32 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 16, 144 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 8, 32 )
+rotation = 0.00336162
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 120, 32 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 168, 32 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 104, 32 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 136, 144 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 136, 40 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 152, 40 )
+shape = SubResource( 4 )
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+position = Vector2( 72, 80 )
+
+[node name="HostelComplex" parent="." instance=ExtResource( 2 )]
+position = Vector2( 48, -8 )
+rotation = -1.57015
+
+[node name="HostelComplexpos" type="Position2D" parent="."]
+position = Vector2( 48, 16 )

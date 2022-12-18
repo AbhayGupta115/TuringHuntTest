@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Levels/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Levels/HostelComplex.png" type="Texture" id=2]
+[ext_resource path="res://Levels/Entrance.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/levels.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 40, 40 )
+
+[node name="HostelComplex" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="HostelComplex" type="Sprite" parent="."]
+position = Vector2( 256, 128 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 0, -32 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 72, 88 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 72, 248 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 248, 248 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 248, 88 )
+shape = SubResource( 1 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 160, 120 )
+
+[node name="LHC" parent="." instance=ExtResource( 3 )]
+position = Vector2( 160, 296 )
+rotation = -1.58061
+
+[node name="LHCpos" type="Position2D" parent="."]
+position = Vector2( 160, 272 )
